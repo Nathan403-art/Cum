@@ -1,17 +1,8 @@
 body {
   background-color: #000;
-  background-image: 
-    radial-gradient(ellipse at 10% 20%, #ffffff 5%, transparent 6%),
-    radial-gradient(ellipse at 80% 30%, #ffffff 5%, transparent 6%),
-    radial-gradient(ellipse at 50% 70%, #ffffff 5%, transparent 6%),
-    radial-gradient(ellipse at 30% 50%, #ffffff 5%, transparent 6%),
-    radial-gradient(ellipse at 70% 80%, #ffffff 5%, transparent 6%);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: white;
+  background-image: {
 font-family: 'Arial', sans-serif;
-      background: #fff9f0;
+      background: #23282b;
       color: #3a2e1f;
       margin: 0;
       padding: 0;
