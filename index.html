@@ -1,56 +1,124 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>sexo Universitário</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Méliènse</title>
+  <style>
+    :root {
+      --cor-primaria: #3e2c23; /* marrom café suave */
+      --cor-secundaria: #000000; /* preto */
+      --cor-texto: #ffffff; /* branco */
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, var(--cor-secundaria), var(--cor-primaria));
+      color: var(--cor-texto);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: var(--cor-texto);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .menu-deslizante {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: var(--cor-primaria);
+      padding: 2rem;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+      transition: right 0.3s ease-in-out;
+      z-index: 20;
+    }
+
+    .menu-deslizante.aberto {
+      right: 0;
+    }
+
+    .btn-menu {
+      background: none;
+      border: 2px solid var(--cor-texto);
+      color: var(--cor-texto);
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
   <header>
-    Café Universitário
+    <h1>Café Méliènse</h1>
+    <nav>
+      <a href="#">Início</a>
+      <a href="#">Cardápio</a>
+      <a href="#">Sobre</a>
+      <a href="#">Contato</a>
+      <button class="btn-menu" onclick="abrirMenu()">Menu</button>
+    </nav>
   </header>
-  <nav>
-    <a href="#about">Sobre</a>
-    <a href="#menu">Menu</a>
-    <a href="#promos">Promoções</a>
-    <a href="#contact">Contato</a>
-  </nav>
-  <main>
-    <section id="about">
-      <h2>Sobre o Café</h2>
-      <p>Nosso cafe e feito em parceria com o a faculdade melies e tem como principal conceito os alunos estudarem arte, socializarem, e apresiar projetos de outros estudantes.
-        A cafeteria é aberta tanto para os estudantes, quanto para pessoas de fora que se interessarem.</p>
-    </section>
-    <section id="menu">
-      <h2>Nosso Menu</h2>
-      <ul class="menu-list">
-        <li><span>Expresso</span> <span>R$ 5,00</span></li>
-        <li><span>Cappuccino</span> <span>R$ 7,00</span></li>
-        <li><span>Latte</span> <span>R$ 7,50</span></li>
-        <li><span>Chocolate Quente</span> <span>R$ 6,00</span></li>
-        <li><span>Sanduíche Natural</span> <span>R$ 9,00</span></li>
-        <li><span>Cookie Caseiro</span> <span>R$ 4,00</span></li>
-      </ul>
-    </section>
-    <section id="promos">
-      <h2>Promoções para Estudantes</h2>
-      <div class="promo">
-        <p><strong>Combo Estudantil:</strong> Expresso + Cookie por <em>R$ 7,50</em> — válido com apresentação da carteirinha universitária!</p>
-      </div>
-      <div class="promo">
-        <p><strong>Happy Hour:</strong> De segunda a sexta, das 16h às 18h, desconto de 20% em todos os cafés.</p>
-      </div>
-    </section>
-    <section id="contact">
-      <h2>Contato & Localização</h2>
-      <p>📍 Localizado no Bloco B, térreo - Próximo à biblioteca.</p>
-      <p>📞 Telefone: (11) 98765-4321</p>
-      <p>✉️ Email: contato@cafeuniversitario.edu.br</p>
-    </section>
+
+  <div class="menu-deslizante" id="menuDeslizante">
+    <button class="btn-menu" onclick="fecharMenu()">Fechar</button>
+    <ul style="list-style: none; padding: 1rem 0;">
+      <li><a href="#" style="color: white; text-decoration: none;">Início</a></li>
+      <li><a href="#" style="color: white; text-decoration: none;">Cardápio</a></li>
+      <li><a href="#" style="color: white; text-decoration: none;">Sobre</a></li>
+      <li><a href="#" style="color: white; text-decoration: none;">Contato</a></li>
+    </ul>
+  </div>
+
+  <main style="padding: 2rem;">
+    <h2>Bem-vindo ao Café Méliènse</h2>
+    <p>Sabores sofisticados em um ambiente acolhedor. Venha experimentar o melhor do café artesanal.</p>
   </main>
+
   <footer>
-    &copy; 2025 Café Universitário - Feito para você, estudante!
+    <p>&copy; 2025 Café Méliènse. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    function abrirMenu() {
+      document.getElementById('menuDeslizante').classList.add('aberto');
+    }
+
+    function fecharMenu() {
+      document.getElementById('menuDeslizante').classList.remove('aberto');
+    }
+  </script>
 </body>
 </html>
